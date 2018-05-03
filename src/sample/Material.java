@@ -2,9 +2,11 @@ package sample;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public abstract class Material {
 
+    int Material_id;
     boolean checkedOut;
     String dueDate;
     int checkOutTime;
@@ -25,7 +27,7 @@ public abstract class Material {
     //calculate due date
     public void calculateDueDate() {
         java.util.Date dt = java.sql.Date.valueOf(LocalDate.now());
-        SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd, yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM dd, yyyy");
         System.out.println(formatter.format(dt));
 
         LocalDate dt2 = LocalDate.now();
@@ -33,7 +35,13 @@ public abstract class Material {
         System.out.println(dt2);
         System.out.println(dt3);
     }
+
+    public void returnMaterial(){}
+
+    public void renewMaterial(){}
 }
+
+
 
 
 
