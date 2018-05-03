@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TabPane prefHeight="463.0" prefWidth="704.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Create Customer">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="312.0" prefWidth="466.0">
+                     <children>
+                        <TextField fx:id="nameTextField" layoutX="129.0" layoutY="21.0" />
+                        <Button layoutX="387.0" layoutY="21.0" mnemonicParsing="false" onAction="#createCustomer" text="Submit" />
+                        <TextArea layoutX="25.0" layoutY="14.0" prefHeight="26.0" prefWidth="81.0" text="Name:" />
+                        <Button layoutX="387.0" layoutY="76.0" mnemonicParsing="false" onAction="#createCustomer" text="Submit" />
+                        <TextField fx:id="emailTextField" layoutX="129.0" layoutY="76.0" />
+                        <TextArea layoutX="25.0" layoutY="76.0" prefHeight="26.0" prefWidth="81.0" text="Email:" />
+                        <CheckBox layoutX="69.0" layoutY="206.0" mnemonicParsing="false" text="Basic Customer" />
+                        <TextArea layoutX="29.0" layoutY="154.0" prefHeight="21.0" prefWidth="142.0" text="Type of Customer:" />
+                        <CheckBox layoutX="69.0" layoutY="238.0" mnemonicParsing="false" text="Friend of the Library Customer" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Update Customer">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Take out of Library">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker layoutX="70.0" layoutY="36.0" promptText="Pick day to take out:" />
+                        <TabPane layoutX="70.0" layoutY="116.0" prefHeight="212.0" prefWidth="445.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Book">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="260.0" />
+                              </content>
+                            </Tab>
+                            <Tab text="DVD">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </Tab>
+                              <Tab text="Tape">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                              </Tab>
+                              <Tab text="Reference Books">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</GridPane>

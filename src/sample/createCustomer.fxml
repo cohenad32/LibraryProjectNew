@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="355.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createCustomerController">
+   <children>
+      <TitledPane animated="false" prefHeight="355.0" prefWidth="565.0" text="Create Customer">
+        <content>
+          <AnchorPane id="firstName" minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="516.0">
+               <children>
+                  <TextField fx:id="custFirstName" layoutX="58.0" layoutY="37.0" prefHeight="27.0" prefWidth="286.0" promptText="Enter Customer First Name" />
+                  <TextField fx:id="custLastName" layoutX="58.0" layoutY="82.0" prefHeight="27.0" prefWidth="287.0" promptText="Enter Customer Last Name" />
+                  <TextField fx:id="custEmail" layoutX="58.0" layoutY="125.0" prefHeight="27.0" prefWidth="286.0" promptText="Enter Customer Email" />
+                  <CheckBox fx:id="regularCustomer" layoutX="62.0" layoutY="213.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="297.0" text="Regular Customer" />
+                  <CheckBox fx:id="friendOfLibrary" layoutX="62.0" layoutY="245.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="174.0" text="Friend of the Library" />
+                  <Button fx:id="submitCust" layoutX="251.0" layoutY="278.0" mnemonicParsing="false" onAction="#submitCust" text="Submit" />
+                  <TextField layoutX="58.0" layoutY="177.0" prefHeight="27.0" prefWidth="181.0" text="Choose Customer Type:" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </children>
+</AnchorPane>
