@@ -1,6 +1,6 @@
 package sample;
 
-public class RegularCustomer extends Customer{
+public class RegularCustomer extends Customer {
 
     int numRenews;
 
