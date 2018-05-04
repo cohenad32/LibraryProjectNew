@@ -9,6 +9,4 @@ public class Book extends Material{
         super(title);
         checkOutTime = 14;
     }
-
-
 }

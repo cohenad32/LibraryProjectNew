@@ -23,6 +23,10 @@ public abstract class Customer {//abstract b/c law of demeter- never extend a cl
         SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass()+"')");
     }
 
+    public void updateMember(String field, String newValue){
+        //SqlStatement.sqlStatement("update Library_Members set'"+field+"'='"+newValue+'");
+    }
+
     //getter
     public int getNumRenews(){
         return numRenews;
