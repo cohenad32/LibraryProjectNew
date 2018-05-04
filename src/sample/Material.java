@@ -1,10 +1,13 @@
 package sample;
 
+import javafx.collections.ObservableArrayBase;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Observable;
 
-public abstract class Material {
+public abstract class Material extends Observable {
 
     int Material_id;
     boolean checkedOut;
@@ -18,11 +21,16 @@ public abstract class Material {
     }
 //to see if the item is already taken
     public boolean isCheckedOut(){
+
         return checkedOut;
     }
+
 //then if u checkout the item then checkOut would be true
     public void checkOut(){
+
         checkedOut = true;
+        setChanged();
+        notifyObservers();
     }
     //calculate due date
     public void calculateDueDate() {
@@ -36,9 +44,22 @@ public abstract class Material {
         System.out.println(dt3);
     }
 
-    public void returnMaterial(){}
+    public void returnMaterial(){
+        setChanged();
+        notifyObservers();
+    }
 
-    public void renewMaterial(){}
+    public void renewMaterial(){
+        setChanged();
+        notifyObservers();
+    }
+
+    public ArrayList getStatus(){
+        ArrayList l = new ArrayList();
+        l.add(checkedOut);
+        l.add(dueDate);
+        return l;
+    }
 }
 
 
