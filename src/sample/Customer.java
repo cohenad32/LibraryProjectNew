@@ -52,6 +52,7 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
     }
 
     public void renewMaterial(){}
+    //call getNumRenews and then you have template pattern
 
     //called by notifyObservers in materials
     public void update(Observable material) {

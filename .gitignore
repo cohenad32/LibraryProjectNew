@@ -6,3 +6,6 @@
 *.xml
 *.iml
 >>>>>>> 247aa7a61251f7bd8054f7f3c368e9976d28926e
+*.meta
+*.meta
+src/.DS_Store
