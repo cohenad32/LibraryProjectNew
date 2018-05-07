@@ -29,11 +29,11 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
 
 
     public void addMember(){
-        SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass()+"')");
+        SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass().getSimpleName()+"')");
     }
 
     public void updateMember(String field, String newValue){
-        //SqlStatement.sqlStatement("update Library_Members set'"+field+"'='"+newValue+'");
+        SqlStatement.sqlStatement("update Library_Members set "+field+" = '"+newValue+"' where Email = '"+email+"'");
     }
 
     //getter
@@ -42,14 +42,14 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
     }
 
     //when you check out what is the list of materials your getting
-    public void checkOut(Material m, int itemId){
-        LocalDate dueDate = LocalDate.now().plusDays(14);
-        SqlStatement.sqlStatement("insert into Taken_out values("+itemId+"','"+dueDate+"')");
-        m.checkOut(); //take that book item and set the boolean to true and calculate checkout date
+    public void checkOut(Material m){
+        m.checkOut(email); //take that book item and set the boolean to true and calculate checkout date
 
     }
 
-    public void returnMaterial(){}
+    public void returnMaterial(Material m){
+        m.returnMaterial(email);
+    }
 
     public void renewMaterial(){}
 

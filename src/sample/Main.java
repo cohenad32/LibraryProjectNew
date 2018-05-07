@@ -21,7 +21,8 @@ public class Main /*extends Application */{
 */
     public static void main(String[] args) {
         Customer sam = new RegularCustomer("Sam", "Smith", "ss@ss.com");
-        sam.addMember();
+        Material m = new Book(3230);
+        sam.returnMaterial(m);
         //launch(args);
     }
 }
