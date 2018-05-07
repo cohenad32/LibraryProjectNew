@@ -12,7 +12,6 @@ public class createCustomerController {
     public TextField custFirstName;
     public TextField custLastName;
     public TextField custEmail;
-    public CheckBox regularCustomer;
     public CheckBox friendOfLibrary;
     public Button submitCust;
 
@@ -21,18 +20,19 @@ public class createCustomerController {
 
 
     class View {
-        public void submitCust(ActionEvent actionEvent) {
+        public Customer generateCustomer() {
             String firstName = custFirstName.getText();
             String lastName = custLastName.getText();
             String email = custEmail.getText();
-            if (regularCustomer.isSelected()){
-                Customer c = new RegularCustomer(firstName, lastName, email);
-                //controller.uploadCustomer(c);
-
-            }
-            else if (friendOfLibrary.isSelected()){
+            if (friendOfLibrary.isSelected()) {
                 Customer c = new FriendOfTheLibrary(firstName, lastName, email);
-                //controller.uploadCustomer(c);
+                return c;
+            }
+
+            // customer is a regular customer
+            else {
+                Customer c = new RegularCustomer(firstName, lastName, email);
+                return c;
             }
 
         }
@@ -41,8 +41,10 @@ public class createCustomerController {
     class Controller {
         View view = new View();
 
-        void uploadCustomer(Customer customer) {
-            customer.addMember();
+        public void submitCust(ActionEvent actionEvent) {
+            Customer c = view.generateCustomer();
+            c.addMember();
+
         }
 
     }
