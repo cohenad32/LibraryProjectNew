@@ -27,12 +27,12 @@ public class createCustomerController {
             String email = custEmail.getText();
             if (regularCustomer.isSelected()){
                 Customer c = new RegularCustomer(firstName, lastName, email);
-                controller.uploadCustomer(c);
+                //controller.uploadCustomer(c);
 
             }
             else if (friendOfLibrary.isSelected()){
                 Customer c = new FriendOfTheLibrary(firstName, lastName, email);
-                controller.uploadCustomer(c);
+                //controller.uploadCustomer(c);
             }
 
         }
@@ -44,7 +44,6 @@ public class createCustomerController {
         void uploadCustomer(Customer customer) {
             customer.addMember();
         }
-
 
     }
 }

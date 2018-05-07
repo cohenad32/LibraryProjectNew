@@ -8,6 +8,6 @@ public class RegularCustomer extends Customer {
         super(firstName, lastName, email);
         this.numRenews = 1;
     }
-//dont need all code becaese in abstract class
+//dont need all code because in abstract class
 //loop to renew the item only once- make a function renewItem
 }

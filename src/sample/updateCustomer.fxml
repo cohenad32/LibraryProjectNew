@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane fx:id="updateCustomer" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="443.0" text="Update Customer" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.updateCustomerController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="323.0" prefWidth="484.0">
+         <children>
+            <TextField fx:id="custEmail" layoutX="56.0" layoutY="41.0" prefHeight="12.0" prefWidth="330.0" promptText="Insert Customer Email" />
+            <TextField layoutX="56.0" layoutY="158.0" prefHeight="27.0" prefWidth="329.0" text="Check Off New Customer Type" />
+            <CheckBox fx:id="regularCustomer" layoutX="96.0" layoutY="201.0" mnemonicParsing="false" text="Regular Customer" />
+            <CheckBox fx:id="friendOfTheLibrary" layoutX="96.0" layoutY="231.0" mnemonicParsing="false" text="Friend of the Library" />
+            <TextField fx:id="newCustEmail" layoutX="57.0" layoutY="100.0" prefHeight="27.0" prefWidth="328.0" promptText="Insert New Customer Email" />
+            <Button fx:id="submit" layoutX="191.0" layoutY="262.0" mnemonicParsing="false" onAction="#updateCustomer" text="Submit" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>
