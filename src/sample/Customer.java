@@ -32,13 +32,13 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
         SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass().getSimpleName()+"')");
     }
 
-    public void updateMember(String field, String newValue){
+    public void updateCust(String field, String newValue){
         SqlStatement.sqlStatement("update Library_Members set "+field+" = '"+newValue+"' where Email = '"+email+"'");
     }
 
     //getter
     public int getNumRenews(){
-        return numRenews;
+        return this.numRenews;
     }
 
     //when you check out what is the list of materials your getting
@@ -51,7 +51,9 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
         m.returnMaterial(email);
     }
 
-    public void renewMaterial(){}
+    public void renewMaterial(Material m){
+        m.renewMaterial(getNumRenews());
+    }
     //call getNumRenews and then you have template pattern
 
     //called by notifyObservers in materials

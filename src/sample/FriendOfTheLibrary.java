@@ -10,5 +10,9 @@ public class FriendOfTheLibrary extends Customer{
         this.numRenews = 3;
     }
 
-//how to loop through each time renew item that it subtracts 1 from numRenews- need function
+    @Override
+    public int getNumRenews() {
+        return numRenews;
+    }
+    //how to loop through each time renew item that it subtracts 1 from numRenews- need function
 }

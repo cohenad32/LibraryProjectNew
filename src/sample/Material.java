@@ -1,6 +1,9 @@
 package sample;
 
 import javafx.collections.ObservableArrayBase;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.time.LocalDate;
@@ -15,7 +18,7 @@ public abstract class Material extends Observable {
     int checkOutTime;
     String title;
 
-    public Material(int mid ){
+    public Material(int mid){
         this.Material_id = mid;
         checkedOut = false;
     }
@@ -44,9 +47,18 @@ public abstract class Material extends Observable {
         notifyObservers();
     }
 
-    public void renewMaterial(){
+    public boolean renewMaterial(int allowedRenews){
+        int curRenew = this.getNumRenews();
+        if (curRenew < allowedRenews){
+            curRenew++;
+            SqlStatement.sqlUpdate("update Taken_out set num_renews = "+curRenew+" where Material_id = " +Material_id);
+        }
+        else{
+            return false;
+        }
         setChanged();
         notifyObservers();
+        return true;
     }
 
     public ArrayList getStatus(){
@@ -54,6 +66,10 @@ public abstract class Material extends Observable {
         l.add(checkedOut);
         l.add(dueDate);
         return l;
+    }
+
+    public int getNumRenews() {
+        return SqlStatement.sqlQuery("select num_renews from Taken_out where Material_id = '" +Material_id+"'", "num_renews");
     }
 
     public int getCheckOutTime() {
