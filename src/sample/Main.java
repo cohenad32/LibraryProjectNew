@@ -20,10 +20,9 @@ public class Main /*extends Application */{
 
 */
     public static void main(String[] args) {
-        Customer sam = new RegularCustomer("Sam", "Smith", "ss@ss.com");
-        Material m = new Book(3230);
+        Customer sammy = new Customer();
+
         //sam.checkOut(m);
-        sam.renewMaterial(m);
         //launch(args);
     }
 }

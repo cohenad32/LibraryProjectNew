@@ -9,3 +9,14 @@
 *.meta
 *.meta
 src/.DS_Store
+
+
+out/
+out/production/LibraryProjectNew/sample/createCustomerController$View.class
+out/production/LibraryProjectNew/sample/Customer.class
+out/production/LibraryProjectNew/sample/FriendOfTheLibrary.class
+out/production/LibraryProjectNew/sample/LibraryDatabase.sqlite
+out/production/LibraryProjectNew/sample/Main.class
+out/production/LibraryProjectNew/sample/Material.class
+out/production/LibraryProjectNew/sample/RegularCustomer.class
+out/production/LibraryProjectNew/sample/SqlStatement.class
