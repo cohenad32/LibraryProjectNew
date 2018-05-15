@@ -15,8 +15,13 @@ public class createCustomerController {
     public CheckBox friendOfLibrary;
     public Button submitCust;
 
-    Controller controller = new Controller();
+    View view = new View();
 
+    public void submitCust(ActionEvent actionEvent) {
+        Customer c = view.generateCustomer();
+        c.addMember();
+
+    }
 
 
     class View {
@@ -38,15 +43,5 @@ public class createCustomerController {
         }
     }
 
-    class Controller {
-        View view = new View();
-
-        public void submitCust(ActionEvent actionEvent) {
-            Customer c = view.generateCustomer();
-            c.addMember();
-
-        }
-
-    }
 }
 
