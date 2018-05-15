@@ -30,14 +30,14 @@ public class createCustomerController {
             String lastName = custLastName.getText();
             String email = custEmail.getText();
             if (friendOfLibrary.isSelected()) {
-                Customer c = new FriendOfTheLibrary(firstName, lastName, email);
+                Customer c = new FriendOfTheLibrary.Builder().firstName(firstName).lastName(lastName).email(email).build();
                 return c;
             }
             // customer is a regular customer
             else {
-                Customer c = new RegularCustomer(firstName, lastName, email);
+                Customer c = new RegularCustomer.Builder().firstName(firstName).lastName(lastName).email(email).build();
                 return c;
-            }  return null;
+            }
 
         }
     }
