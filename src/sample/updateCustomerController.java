@@ -14,10 +14,10 @@ public class updateCustomerController {
 
     View view = new View();
 
-    Customer c = new Customer();
 
     // checks what needs to be updated and updates accordingly
     public void updateCustomer(ActionEvent actionEvent){
+        Customer c = view.generateCustomer();
         //figure out the best way to implement this
         String[] toUpdate = view.generateUpdate();
         for (int i = 0; i<toUpdate.length; i++){
@@ -45,6 +45,12 @@ public class updateCustomerController {
             String email = newEmail.getText();
             return new String[]{firstName, lastName, email};
 
+        }
+
+        public Customer generateCustomer(){
+            String email = custEmail.getText();
+            Customer c = new Customer.Builder().email(email).build();
+            return c;
         }
     }
 
