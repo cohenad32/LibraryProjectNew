@@ -2,66 +2,51 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
-import javafx.scene.control.TitledPane;
-import javafx.scene.layout.AnchorPane;
 
-=======
-/*
->>>>>>> 93e7eb2253833c61e73fe79c2eb7a180d35adc4c
+
 public class updateCustomerController {
     public TextField custEmail;
-    public Button lookUpCust;
     public TextField newCustFirstName;
     public TextField newCustLastName;
-    public CheckBox friendOfTheLibrary;
-    public TextField newCustEmail;
+    public TextField newEmail;
     public Button submitUpdates;
 
-<<<<<<< HEAD
-    View view = new View;
-=======
-    Controller controller = new Controller();
->>>>>>> 93e7eb2253833c61e73fe79c2eb7a180d35adc4c
+    View view = new View();
 
+    Customer c = new Customer();
+
+    // checks what needs to be updated and updates accordingly
     public void updateCustomer(ActionEvent actionEvent){
-        //figure out the best way to impliment this
-        Customer c = view.generateCust();
-        c.updateMember("string","string");
-
-    }
-
-    public void retrieveCust(ActionEvent actionEvent) {
-
+        //figure out the best way to implement this
+        String[] toUpdate = view.generateUpdate();
+        for (int i = 0; i<toUpdate.length; i++){
+            if (toUpdate[i]!=""){
+                if (i == 0){
+                    c.updateCust("First_name", toUpdate[i]);
+                }
+                else if (i==1){
+                    c.updateCust("Last_name", toUpdate[i]);
+                }
+                else if (i==2){
+                    c.updateCust("Email", toUpdate[i]);
+                }
+            }
+        }
 
     }
 
 
     class View {
-        public Customer generateCust() {
+        // gets data that needs to be updated from the user
+        public String[] generateUpdate() {
             String firstName = newCustFirstName.getText();
             String lastName = newCustLastName.getText();
-            String email = newCustEmail.getText();
-            if (friendOfTheLibrary.isSelected()) {
-                Customer c = new FriendOfTheLibrary(firstName, lastName, email);
-                return c;
-            }
-
-            // customer is a regular customer
-            else {
-                Customer c = new RegularCustomer(firstName, lastName, email);
-                return c;
-            }
+            String email = newEmail.getText();
+            return new String[]{firstName, lastName, email};
 
         }
-
-        public String
-
-        public void populateCustomer(){ }
     }
 
 
 }
-*/
