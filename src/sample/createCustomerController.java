@@ -32,7 +32,7 @@ public class createCustomerController {
             else {
                 Customer c = new RegularCustomer(firstName, lastName, email);
                 return c;
-            }
+            }  return null;
 
         }
     }

@@ -8,9 +8,9 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
-public class Main /*extends Application */{
+public class Main extends Application {
 
-    /*@Override
+    @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
@@ -18,11 +18,8 @@ public class Main /*extends Application */{
         primaryStage.show();
     }
 
-*/
     public static void main(String[] args) {
-        Customer sammy = new Customer();
 
-        //sam.checkOut(m);
-        //launch(args);
+        launch(args);
     }
 }

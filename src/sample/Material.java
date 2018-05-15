@@ -28,6 +28,18 @@ public abstract class Material extends Observable {
         return checkedOut;
     }
 
+    //find book that want to check out based on title
+    public static int findMaterial(String title){
+        int mID;
+        try {
+            mID = SqlStatement.sqlQuery("select Material_id from Material where Title = '" + title + "' and Material_id not in (select Material_id from Taken_out)", "Material_id");
+        }
+        catch(Exception e){
+            mID = -1;
+        }
+        return mID;
+    }
+
 //then if u checkout the item then checkOut would be true
     public void checkOut(String email){
         SqlStatement.sqlStatement("insert into Taken_out values('"+email+"','"+Material_id+"','"+this.calculateDueDate()+"','"+0+"')");
