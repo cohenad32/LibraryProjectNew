@@ -8,14 +8,14 @@ import java.util.Calendar;
 //import.java.util.Observer;
 
 //changed constructor and create member
-public abstract class Customer implements InvalidationListener{//abstract b/c law of demeter- never extend a class only if its an abstract class
+public class Customer implements InvalidationListener{//abstract b/c law of demeter- never extend a class only if its an abstract class
     String firstName;
     String lastName;
     String email;
     int numRenews;
 
     //constructor
-    public Customer(String firstName, String lastName, String email){
+    public Customer(){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -29,29 +29,31 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
 
 
     public void addMember(){
-        SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass()+"')");
+        SqlStatement.sqlStatement("insert into Library_Members values('"+firstName+"','"+lastName+"','"+email+"','"+this.getClass().getSimpleName()+"')");
     }
 
-    public void updateMember(String field, String newValue){
-        //SqlStatement.sqlStatement("update Library_Members set'"+field+"'='"+newValue+'");
+    public void updateCust(String field, String newValue){
+        SqlStatement.sqlStatement("update Library_Members set "+field+" = '"+newValue+"' where Email = '"+email+"'");
     }
 
     //getter
     public int getNumRenews(){
-        return numRenews;
+        return this.numRenews;
     }
 
     //when you check out what is the list of materials your getting
-    public void checkOut(Material m, int itemId){
-        LocalDate dueDate = LocalDate.now().plusDays(14);
-        SqlStatement.sqlStatement("insert into Taken_out values("+itemId+"','"+dueDate+"')");
-        m.checkOut(); //take that book item and set the boolean to true and calculate checkout date
+    public void checkOut(Material m){
+        m.checkOut(email); //take that book item and set the boolean to true and calculate checkout date
 
     }
 
-    public void returnMaterial(){}
+    public void returnMaterial(Material m){
+        m.returnMaterial(email);
+    }
 
-    public void renewMaterial(){}
+    public void renewMaterial(Material m){
+        m.renewMaterial(getNumRenews());
+    }
     //call getNumRenews and then you have template pattern
 
     //called by notifyObservers in materials
@@ -64,6 +66,40 @@ public abstract class Customer implements InvalidationListener{//abstract b/c la
 
     @Override
     public void invalidated(Observable observable) {
+
+    }
+
+    public static class Builder{
+        Customer c = new Customer();
+        public Builder email(String email){
+            c.email = email;
+            return this;
+        }
+
+        public Builder firstName(String fName){
+            c.firstName = fName;
+            return this;
+        }
+
+        public Builder lastName(String lName){
+            c.lastName = lName;
+            return this;
+        }
+
+        public Builder firstName(){
+            c.firstName = SqlStatement.sqlQueryString("select First_name from Library_Members where Email = '" + c.email + "'", "First_name");
+            return this;
+        }
+
+        public Builder lastName(){
+            c.lastName = SqlStatement.sqlQueryString("select Last_name from Library_Members where Email = '" + c.email + "'", "Last_name");
+            return this;
+        }
+
+
+        public Customer build(){
+            return c;
+        }
 
     }
 

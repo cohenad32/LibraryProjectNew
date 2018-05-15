@@ -33,12 +33,11 @@ public class createCustomerController {
                 Customer c = new FriendOfTheLibrary(firstName, lastName, email);
                 return c;
             }
-
             // customer is a regular customer
             else {
                 Customer c = new RegularCustomer(firstName, lastName, email);
                 return c;
-            }
+            }  return null;
 
         }
     }

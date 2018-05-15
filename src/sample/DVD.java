@@ -2,8 +2,8 @@ package sample;
 
 public class DVD extends Material {
 
-    public DVD(String title){
-        super(title);
+    public DVD(int mid){
+        super(mid);
         checkOutTime = 10;
     }
 }

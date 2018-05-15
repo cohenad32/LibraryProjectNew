@@ -4,9 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+<<<<<<< HEAD
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
+=======
+/*
+>>>>>>> 93e7eb2253833c61e73fe79c2eb7a180d35adc4c
 public class updateCustomerController {
     public TextField custEmail;
     public Button lookUpCust;
@@ -16,7 +20,11 @@ public class updateCustomerController {
     public TextField newCustEmail;
     public Button submitUpdates;
 
+<<<<<<< HEAD
     View view = new View;
+=======
+    Controller controller = new Controller();
+>>>>>>> 93e7eb2253833c61e73fe79c2eb7a180d35adc4c
 
     public void updateCustomer(ActionEvent actionEvent){
         //figure out the best way to impliment this
@@ -56,3 +64,4 @@ public class updateCustomerController {
 
 
 }
+*/
