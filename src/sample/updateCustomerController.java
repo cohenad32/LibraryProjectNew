@@ -21,7 +21,7 @@ public class updateCustomerController {
         //figure out the best way to implement this
         String[] toUpdate = view.generateUpdate();
         for (int i = 0; i<toUpdate.length; i++){
-            if (toUpdate[i]!=""){
+            if (! toUpdate[i].isEmpty()){
                 if (i == 0){
                     c.updateCust("First_name", toUpdate[i]);
                 }

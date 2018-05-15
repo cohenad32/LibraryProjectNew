@@ -40,6 +40,10 @@ public abstract class Material extends Observable {
         return mID;
     }
 
+    public static String getType(int mid){
+        return SqlStatement.sqlQueryString("select Type from Material where Material_id = '"+mid+"'", "Type");
+    }
+
 //then if u checkout the item then checkOut would be true
     public void checkOut(String email){
         SqlStatement.sqlStatement("insert into Taken_out values('"+email+"','"+Material_id+"','"+this.calculateDueDate()+"','"+0+"')");

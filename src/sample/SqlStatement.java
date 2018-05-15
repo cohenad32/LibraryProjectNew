@@ -19,9 +19,9 @@ public class SqlStatement {
     //for int
     public static int sqlQuery(String sql, String column) {
         try {
-            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/RivkaAxelrod/Documents/Stern College/1st year/Spring 2018/Object Oriented/Projects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             int ans = rs.getInt(column);
@@ -36,9 +36,9 @@ public class SqlStatement {
 
     public static String sqlQueryString(String sql, String column) {
         try {
-            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/RivkaAxelrod/Documents/Stern College/1st year/Spring 2018/Object Oriented/Projects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             String ans = rs.getString(column);
@@ -53,9 +53,9 @@ public class SqlStatement {
 
     public static void sqlUpdate(String sql) {
         try {
-            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/ayliana/CS/IdeaProjects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/RivkaAxelrod/Documents/Stern College/1st year/Spring 2018/Object Oriented/Projects/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
+            //Connection conn = DriverManager.getConnection("jdbc:sqlite:/Users/adinacohen/Documents/GitHub/LibraryProjectNew/src/sample/LibraryDatabase.sqlite");
             Statement statement  = conn.createStatement();
             statement.executeUpdate(sql);
             conn.close();
