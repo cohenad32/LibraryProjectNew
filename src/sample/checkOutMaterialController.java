@@ -14,34 +14,47 @@ public class checkOutMaterialController {
     View view = new View();
 
     public void checkOut(ActionEvent actionEvent) {
-        String itemTitle = view.materialTitle();
-        int mID = Material.findMaterial(itemTitle);
-
-
+        Customer c = view.generateCustomer();
+        Material m = view.generateMaterial();
+        c.checkOut(m);
 
     }
 
     public void returnItem(ActionEvent actionEvent) {
+        Customer c = view.generateCustomer();
+        Material m = view.generateMaterial();
+        c.returnMaterial(m);
     }
 
 
     class View{
+
+        // generates a customer
         public Customer generateCustomer(){
             String email = custEmail.getText();
             Customer c = new Customer.Builder().email(email).build();
             return c;
         }
 
-        public String materialTitle(){
+
+        // checks what type of material it is and then generates a material accordingly
+        public Material generateMaterial(){
             String itemTitle = title.getText();
-            return itemTitle;
+            int mID = Material.findMaterial(itemTitle);
+            String type = Material.getType(mID);
+            if (type == "Tape"){
+                Material m = new Tape(mID);
+                return m;
+            }
+            else if (type == "Book"){
+                Material m = new Book(mID);
+                return m;
+            }
+            else{
+                Material m = new DVD(mID);
+                return m;
+            }
         }
     }
-    // Material.findMaterial takes title and returns id of the material that is not checked out. returns -1 if all checked out
-
-    // Customer.checkOut(takes a material)
-
-    // when book is checked out, look up material id, generate material using id and then call checkout function
-    // and put material in
 
 }
